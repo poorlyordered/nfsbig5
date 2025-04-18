@@ -1,0 +1,14 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: Heuristica-Regular
+font link: https://www.fontsquirrel.com/fonts/heuristica
+font author: Andrej Panov
+font author site: 
+
+
+icon designer: Yaroslav Samoylov
+icon designer link: /bravebros
+        
+{"bg":"#FC0600","icon":"#C6B9A9","font":"#ffffff","slogan":"#ffffff"}
+      

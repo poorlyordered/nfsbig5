@@ -1,32 +1,24 @@
-import { compareDesc } from 'date-fns';
-import { allPosts } from 'contentlayer/generated';
+// import { compareDesc } from 'date-fns'; // No longer needed for sorting here
+// import { allPosts } from 'contentlayer/generated'; // Removed contentlayer import
 import { PostCard } from '@/components/post-card';
-import { unstable_setRequestLocale } from 'next-intl/server';
+import { getAllPosts } from '@/lib/markdown'; // Updated import
 
-interface Props {
-  params: { locale: string };
-}
-
-export default function ArticlesPage({ params: { locale } }: Props) {
-  unstable_setRequestLocale(locale);
-  const posts = allPosts.sort((a, b) =>
-    compareDesc(new Date(a.date), new Date(b.date))
-  );
+export default async function ArticlesPage() {
+  // Fetch posts using the new utility (already sorted by date)
+  const posts = await getAllPosts();
 
   return (
-    <div className='w-full lg:px-16 mt-12'>
-      <div className='text-center'>
-        <h1 className='mb-2 font-bold text-4xl'>Personality articles</h1>
-        <h5 className='text-default-500 text-lg'>
-          All the latest and greatest news and articles on Personality
-        </h5>
-      </div>
-
-      <div className='mt-10 grid gap-4 grid-cols-[repeat(auto-fill,minmax(300px,1fr))]'>
-        {posts.map((post, idx) => (
-          <PostCard key={idx} {...post} />
-        ))}
-      </div>
+    <div className="container mx-auto px-4 py-8"> {/* Added padding */}
+      <h1 className="text-4xl font-bold mb-8 text-center">Articles</h1> {/* Centered title */}
+      {posts.length === 0 ? (
+        <p className="text-center text-default-500">No articles found.</p>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> {/* Increased gap */}
+          {posts.map((post) => (
+            <PostCard key={post._id} {...post} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

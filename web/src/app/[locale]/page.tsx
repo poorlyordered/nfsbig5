@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import { Link } from '@nextui-org/link';
 import { button as buttonStyles } from '@nextui-org/theme';
 import { title, subtitle } from '@/components/primitives';
@@ -14,9 +15,8 @@ import {
 } from '@/components/icons';
 import { ArrowRightIcon } from '@/components/icons';
 import { siteConfig } from '@/config/site';
-import { compareDesc } from 'date-fns';
-import { allPosts } from 'contentlayer/generated';
 import { PostCard } from '@/components/post-card';
+import { getAllPosts } from '@/lib/markdown';
 import { SonarPulse } from '@/components/sonar-pulse';
 import { Button } from '@nextui-org/button';
 import { unstable_setRequestLocale } from 'next-intl/server';
@@ -28,14 +28,21 @@ interface Props {
   params: { locale: string };
 }
 
-export default function Home({ params: { locale } }: Props) {
-  unstable_setRequestLocale(locale);
-  const t = useTranslations('frontpage');
-  const f = useTranslations('facets');
+// Fetch posts data outside the component
+async function getPosts() {
+  const posts = await getAllPosts();
+  return posts.slice(0, 3); // Get top 3 posts (already sorted by date)
+}
 
-  const posts = allPosts
-    .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
-    .slice(0, 3);
+export default async function Home({ params: { locale } }: Props) {
+  unstable_setRequestLocale(locale);
+  
+  // Use getTranslations instead of useTranslations for server components
+  const t = await getTranslations('frontpage');
+  const f = await getTranslations('facets');
+
+  // Get posts data
+  const posts = await getPosts();
 
   const features = [
     {

@@ -2,9 +2,10 @@ import { Card, CardFooter, CardBody } from '@nextui-org/card';
 import { Avatar } from '@nextui-org/avatar';
 import { Image } from '@nextui-org/image';
 import { format, parseISO } from 'date-fns';
-import { Post } from 'contentlayer/generated';
+// import { Post } from 'contentlayer/generated'; // Removed contentlayer import
 import { Link } from '@/navigation';
 import { calculateReadingTime } from '@/lib/helpers';
+import { Post } from '@/lib/markdown'; // Updated import
 
 export function PostCard(post: Post) {
   return (
@@ -17,12 +18,12 @@ export function PostCard(post: Post) {
         <CardBody className='pt-0 px-2 pb-1'>
           <Image
             className='mb-4 object-cover'
-            src={post.image}
+            src={post.image || '/placeholder.png'} // Added fallback image
             alt={post.description}
             height={400}
             width={400}
           />
-          <div className='absolute inset-0'></div>
+          {/* Removed absolute div as it seemed unused */}
           <h3 className='z-10 mt-3 text-3xl font-bold'>{post.title}</h3>
           <p className='font-normal w-full text-default-600'>
             {post.description}
@@ -33,13 +34,15 @@ export function PostCard(post: Post) {
             <time
               className='block'
               dateTime={post.date}
-              suppressHydrationWarning
+              suppressHydrationWarning // Keep if needed for date formatting consistency
             >
+              {/* Ensure date parsing works correctly */}
               {format(parseISO(post.date), 'LLLL d, yyyy')}
             </time>
-            <p>{calculateReadingTime(post.body.raw)} min read</p>
+            {/* Ensure post.body.raw exists and is a string */}
+            <p>{calculateReadingTime(post.body?.raw || '')} min read</p>
           </div>
-          <Avatar size='sm' src={post.author?.avatar} />
+          <Avatar size='sm' src={post.author?.avatar || '/avatars/default.png'} /> {/* Added fallback avatar */}
         </CardFooter>
       </Card>
     </Link>
