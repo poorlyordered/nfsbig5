@@ -5,4 +5,4 @@
 [build]
   base = "web"
   command = "npm run build"
-  publish = "web/.next"
+  publish = ".next"
