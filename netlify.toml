@@ -11,3 +11,8 @@
   from = "/"
   to = "/en/"
   status = 302
+
+[[redirects]]
+  from = "/en"
+  to = "/en/index.html"
+  status = 200
