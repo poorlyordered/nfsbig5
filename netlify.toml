@@ -6,3 +6,8 @@
   base = "web"
   command = "npm run build"
   publish = ".next"
+
+[[redirects]]
+  from = "/"
+  to = "/en/"
+  status = 302
