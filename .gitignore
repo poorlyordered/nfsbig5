@@ -18,3 +18,5 @@ old-packages/
 
 # IDE and OS files
 .DS_Store
+# Local Netlify folder
+.netlify

@@ -6,6 +6,7 @@
 - Project structure supports modularity, internationalization, and white-label deployment
 - Custom markdown processing solution successfully implemented, replacing contentlayer
 - **MongoDB Atlas migration is complete and verified.** The application successfully connects to MongoDB Atlas using environment variables.
+- **Netlify "page not found" error resolved by configuring build settings (base directory and build command) in `netlify.toml`.**
 
 ## What's Left to Build
 - Implement and test branding changes in the codebase using assets from `images`
@@ -25,6 +26,7 @@
 - **MongoDB Atlas is successfully integrated and verified.**
 - **Initial Netlify Edge Function file and configuration created.**
 - **`.env.local` has been removed from Git history using `git-filter-repo` to prevent exposure of sensitive information.**
+- **Netlify deployment is now successfully building and serving the Next.js application.**
 
 ## Known Issues
 - No major issues identified at this stage; documentation will be updated as the project evolves
