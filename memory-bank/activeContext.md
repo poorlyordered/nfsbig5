@@ -13,6 +13,7 @@
 - **Completed MongoDB Atlas migration and verified database connectivity.**
 - **Scaffolded initial Netlify Edge Function (`netlify/edge-functions/get-ai-sessions.ts`) and created `netlify.toml` for configuration.**
 - **Resolved ESLint parsing error by excluding specific files in `web/.eslintrc.json`.**
+- **Removed `.env.local` from Git history using `git-filter-repo` to prevent exposure of sensitive information.**
 
 ## Next Steps
 - Implement branding changes in the codebase using assets from `images`

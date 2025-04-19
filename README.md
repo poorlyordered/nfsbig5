@@ -1,17 +1,17 @@
-# bigfive-web
+# NFS Big-5 (Next Full Step Big-5)
 
-Prod: https://bigfive-test.com
+A web application for the Big Five project.
 
-Website for five factor model of personality based on work from [IPIP-NEO-PI](https://github.com/kholia/IPIP-NEO-PI).
+## Installation
 
-Tests and evaluation is gathered from [ipip.ori.org](http://ipip.ori.org).
+Instructions on how to install the project dependencies.
 
-See it live @ [bigfive-test.com](https://bigfive-test.com)
+## Usage
 
-## Help wanted
-
-If you want to help by translating the items to other languages look [here](https://b5.translations.alheimsins.net/).
+Instructions on how to run and use the application.
 
 ## License
 
-[MIT](LICENSE)
+This project is based on the original bigfive-web project and is licensed under the MIT License.
+
+(https://github.com/poorlyordered/nfsbig5/blob/main/LICENSE)

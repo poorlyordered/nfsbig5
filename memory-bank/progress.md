@@ -24,6 +24,7 @@
 - Dependency conflicts with Next.js 14 resolved by migrating from contentlayer to custom markdown utilities
 - **MongoDB Atlas is successfully integrated and verified.**
 - **Initial Netlify Edge Function file and configuration created.**
+- **`.env.local` has been removed from Git history using `git-filter-repo` to prevent exposure of sensitive information.**
 
 ## Known Issues
 - No major issues identified at this stage; documentation will be updated as the project evolves
