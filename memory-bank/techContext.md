@@ -2,8 +2,8 @@
 
 ## Technologies Used
 - **Frontend:** Next.js (React, TypeScript)
-- **Backend:** Next.js API routes, Node.js
-- **Database:** MongoDB (accessed via official MongoDB Node.js driver)
+- **Backend:** Next.js API routes (Node.js), Netlify Edge Functions (TypeScript/Deno)
+- **Database:** MongoDB Atlas (accessed via MongoDB Data API for Edge Functions, official Node.js driver for Next.js API routes)
 - **Styling:** Tailwind CSS, global CSS, custom fonts
 - **Monorepo:** Multiple packages for questions, results, and scoring logic
 

@@ -2,8 +2,8 @@
 
 ## System Architecture
 - **Frontend:** Next.js web application (TypeScript, React)
-- **Backend:** API routes within Next.js, direct MongoDB access for result storage/retrieval
-- **Database:** MongoDB, with collections for results, feedback, and possibly user data
+- **Backend:** Next.js API routes (Node.js) and Netlify Edge Functions (TypeScript/Deno) for backend logic and data access.
+- **Database:** MongoDB Atlas, with collections for results, feedback, and user data. Accessed via MongoDB Data API from Edge Functions and official Node.js driver from Next.js API routes.
 - **Packages:** Modular monorepo structure with separate packages for questions, results, and scoring logic
 
 ## Key Technical Decisions
@@ -20,11 +20,12 @@
 - Utility-based content processing with modular markdown transformation pipeline
 
 ## Component Relationships
-- Web frontend interacts with backend API routes for test submission and result retrieval
-- Backend API uses shared logic from packages for scoring and result generation
-- Database layer abstracts MongoDB access
+- Web frontend interacts with backend API routes and/or Netlify Edge Functions for test submission and result retrieval.
+- Backend logic (in API routes and Edge Functions) uses shared logic from packages for scoring and result generation where applicable.
+- Database layer abstracts MongoDB Atlas access, with different access methods for API routes and Edge Functions.
 - Content utilities in `src/lib/markdown.ts` provide data for blog and article components
 
 ## Critical Implementation Paths
-- User completes NFS Big5 assessment → answers submitted to backend → results scored and stored in MongoDB → user receives and can share results
+- User completes NFS Big5 assessment → answers submitted to backend (API route or Edge Function) → results scored and stored in MongoDB Atlas → user receives and can share results
 - Admin customizes branding/assets/config (using assets from the `images` directory) → redeploys app for new brand or audience
+- **For latency-sensitive data access (e.g., AI sessions), frontend interacts with Netlify Edge Functions which use the MongoDB Data API.**

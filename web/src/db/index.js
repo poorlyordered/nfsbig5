@@ -4,7 +4,7 @@ const path = require('path');
 const dotenv = require('dotenv');
 
 // Load environment variables from .env.local in the project root
-dotenv.config({ path: path.resolve(process.cwd(), '..', '.env.local') });
+dotenv.config({ path: path.resolve(process.cwd(), '.env.local') });
 
 const url = process.env.DB_URL;
 if (!url) {
