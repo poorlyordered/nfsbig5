@@ -11,18 +11,10 @@
     - Non-English message files removed.
     - Locale switcher components removed and Navbar updated.
 - **Catch-all route (`[[...rest]]/page.tsx`) confirmed to have `generateStaticParams` suitable for English-only static export.**
+- **English-only refactor and `generateStaticParams` fix committed and pushed.**
 
 ## What's Left to Build
-- Implement and test branding changes in the codebase using assets from `images`
-- Update UI, config, and documentation to consistently use "NFS Big5"
-- Expand documentation as new features or requirements emerge
-- **Complete Netlify Edge Function implementation:**
-    - Enable MongoDB Data API in Atlas (manual).
-    - Add required environment variables to Netlify site settings (manual).
-    - Test Edge Function locally using `netlify dev`.
-    - Integrate Edge Function calls into Next.js API routes if needed.
-    - Deploy and validate Edge Function in production.
-- **Commit and deploy English-only refactor changes.**
+- Monitor Netlify deployment for build success.
 - Implement and test branding changes in the codebase using assets from `images`.
 - Update UI, config, and documentation to consistently use "NFS Big5".
 - Expand documentation as new features or requirements emerge.
@@ -34,23 +26,17 @@
     - Deploy and validate Edge Function in production.
 
 ## Current Status
-- Documentation is up to date with the NFS Big5 brand and asset management approach
-- Project is ready for further customization and deployment
-- Dependency conflicts with Next.js 14 resolved by migrating from contentlayer to custom markdown utilities
-- **MongoDB Atlas is successfully integrated and verified.**
-- **Initial Netlify Edge Function file and configuration created.**
-- **`.env.local` has been removed from Git history using `git-filter-repo` to prevent exposure of sensitive information.**
-- **Netlify deployment is now successfully building and serving the Next.js application, but encountering a build error related to static export configuration.**
-- **Refactoring for English-only support is complete.** Code changes are ready for commit.
 - Documentation is up to date with the NFS Big5 brand and asset management approach.
+- Project is ready for further customization and deployment.
 - Dependency conflicts with Next.js 14 resolved by migrating from contentlayer to custom markdown utilities.
 - **MongoDB Atlas is successfully integrated and verified.**
 - **Initial Netlify Edge Function file and configuration created.**
 - **`.env.local` has been removed from Git history using `git-filter-repo` to prevent exposure of sensitive information.**
-- **Netlify deployment is configured for static export, pending resolution of the `generateStaticParams` error (which is believed to be addressed by the English-only refactor).**
+- **English-only refactor and `generateStaticParams` fix committed and pushed.**
+- **Netlify deployment is configured for static export, and we are monitoring the build result.**
 
 ## Known Issues
-- **Netlify build error: Missing generateStaticParams for /[locale]/[...rest] route when using `output: 'export'`.** This is believed to be resolved by the English-only refactor, as the existing `generateStaticParams` function in the catch-all route is now sufficient. Awaiting confirmation after deployment.
+- **Netlify build error: Missing generateStaticParams for /[locale]/[...rest] route when using `output: 'export'`.** The fix (English-only refactor and `generateStaticParams` confirmation) has been committed and pushed. Awaiting Netlify build result for confirmation.
 - No other major issues identified at this stage; documentation will be updated as the project evolves.
 
 ## Evolution of Project Decisions

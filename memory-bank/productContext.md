@@ -6,11 +6,11 @@ The NFS Big5 Personality Assessment exists to make high-quality, research-backed
 ## Problems It Solves
 - Provides a validated, standardized personality test online
 - Enables users to receive instant, personalized feedback
-- Supports multiple languages and cultural contexts
+- Currently supports English only (multilingual support removed for current phase)
 - Allows organizations or individuals to deploy the NFS Big5 assessment under their own brand
 
 ## How It Should Work
-- Users access the web app, select their language, and complete the NFS Big5 questionnaire
+- Users access the web app and complete the NFS Big5 questionnaire in English
 - Results are scored and stored securely in a MongoDB database
 - Users can view, share, or compare their results
 - Admins can customize branding and deploy the app for different audiences
@@ -19,4 +19,4 @@ The NFS Big5 Personality Assessment exists to make high-quality, research-backed
 - Simple, engaging, and accessible interface
 - Fast, accurate, and clear result delivery
 - Trustworthy handling of user data and privacy
-- Seamless support for multiple brands and languages
+- Seamless support for multiple brands (currently English only)

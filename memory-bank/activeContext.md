@@ -1,8 +1,7 @@
 # Active Context
 
 ## Current Work Focus
-- **Refactoring application for English-only support.**
-- **Resolving Netlify build error (`generateStaticParams`) as part of English-only refactor.**
+- **Monitoring Netlify deployment after pushing English-only refactor and `generateStaticParams` fix.**
 - Implementing deployment infrastructure with Netlify and MongoDB Atlas.
 - Updating all Memory Bank documentation to reflect the NFS Big5 branding.
 - Integrating new logo assets from the `images` directory into the branding plan and documentation.
@@ -21,9 +20,12 @@
 - **Configured i18n for English-only:** Updated `web/src/config/site.ts` and `web/src/middleware.ts`.
 - **Removed non-English message files** from `web/src/messages/`.
 - **Removed locale switcher components** (`locale-switcher.tsx`, `locale-switcher-full.tsx`) and updated `web/src/components/navbar.tsx`.
-
+- **Committed changes related to English-only refactor and `generateStaticParams` fix.**
+- **Pushed changes to remote repository.**
+ 
 ## Next Steps
-- Implement branding changes in the codebase using assets from `images`
+- Monitor Netlify deployment for build success.
+- Implement branding changes in the codebase using assets from `images`.
 - Update UI, config, and documentation to consistently use "NFS Big5"
 - Continue refining documentation as the project evolves
 - Consider implementing caching for markdown processing to improve performance
@@ -33,9 +35,6 @@
     - Test Edge Function locally using `netlify dev`.
     - Integrate Edge Function calls into Next.js API routes if needed.
     - Deploy and validate Edge Function in production.
-- **Commit changes related to English-only refactor and `generateStaticParams` fix.**
-- Monitor Netlify deployment after pushing changes.
-- Implement branding changes in the codebase using assets from `images`.
 - Update UI, config, and documentation to consistently use "NFS Big5".
 - Continue refining documentation as the project evolves.
 - Consider implementing caching for markdown processing to improve performance.
@@ -60,4 +59,4 @@
 - Custom solutions for content processing provide more flexibility and fewer dependency conflicts
 
 ## Known Issues
-- **Netlify build error: Missing generateStaticParams for /[locale]/[...rest] route when using `output: 'export'`.** This is being addressed as part of the English-only refactor. The existing function in `web/src/app/[locale]/[[...rest]]/page.tsx` appears sufficient for the English-only context.
+- **Netlify build error: Missing generateStaticParams for /[locale]/[...rest] route when using `output: 'export'`.** The fix (English-only refactor and `generateStaticParams` confirmation) has been committed and pushed. Awaiting Netlify build result for confirmation.

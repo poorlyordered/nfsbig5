@@ -9,13 +9,13 @@
 ## Key Technical Decisions
 - Use of MongoDB for flexible, scalable storage of NFS Big5 assessment results
 - Modularization of core logic (questions, results, score) for reusability and maintainability
-- Internationalization support via configuration and content files
+- English-only support via configuration and content files (Internationalization support removed for current phase)
 - Branding and theming via public assets, CSS, and config files
 - Custom markdown processing for blog posts and content using remark ecosystem
 
 ## Design Patterns in Use
 - Separation of concerns: UI, business logic, and data access are clearly separated
-- Configuration-driven branding and language support
+- Configuration-driven branding (language support is English-only)
 - Use of environment variables for deployment flexibility
 - Utility-based content processing with modular markdown transformation pipeline
 

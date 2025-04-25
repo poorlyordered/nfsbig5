@@ -8,7 +8,7 @@ To provide users with a scientifically validated Big Five personality assessment
 
 ## Core Requirements
 - User-facing web application for taking the NFS Big5 assessment
-- Multilingual support
+- English-only support (Multilingual support removed for current phase)
 - Secure storage and retrieval of test results
 - Customizable branding for white-label deployments
 - Support for result sharing and comparison
