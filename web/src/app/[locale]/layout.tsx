@@ -11,7 +11,7 @@ import { basePath, getNavItems, locales, siteConfig } from '@/config/site';
 import { unstable_setRequestLocale } from 'next-intl/server';
 import { getTranslations } from 'next-intl/server';
 import { Analytics } from '@vercel/analytics/react';
-import useTextDirection from '@/hooks/use-text-direction';
+// import useTextDirection from '@/hooks/use-text-direction'; // Removed for English-only
 import Script from 'next/script';
 import CookieBanner from '@/components/cookie-consent';
 
@@ -87,14 +87,14 @@ export default async function RootLayout({
 }) {
   const gaId = process.env.NEXT_PUBLIC_ANALYTICS_ID || '';
   unstable_setRequestLocale(locale);
-  const direction = useTextDirection(locale);
+  // const direction = useTextDirection(locale); // Removed for English-only, hardcoding 'ltr' below
 
   const navItems = await getNavItems({ locale, linkType: 'navItems' });
   const navMenuItems = await getNavItems({ locale, linkType: 'navMenuItems' });
   const footerLinks = await getNavItems({ locale, linkType: 'footerLinks' });
 
   return (
-    <html lang={locale} dir={direction} suppressHydrationWarning>
+    <html lang={locale} dir="ltr" suppressHydrationWarning> {/* Hardcoded ltr for English-only */}
       <head />
       <body
         className={clsx(

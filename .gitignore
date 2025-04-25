@@ -27,3 +27,6 @@ old-packages/
 /.workflows/
 /.processes/
 /.tasks/
+
+# Roo configuration and context
+.ruru/

@@ -4,7 +4,7 @@
 - **Frontend:** Next.js web application (TypeScript, React)
 - **Backend:** Next.js API routes (Node.js) and Netlify Edge Functions (TypeScript/Deno) for backend logic and data access.
 - **Database:** MongoDB Atlas, with collections for results, feedback, and user data. Accessed via MongoDB Data API from Edge Functions and official Node.js driver from Next.js API routes.
-- **Packages:** Modular monorepo structure with separate packages for questions, results, and scoring logic
+- **Packages:** Modular monorepo structure managed with `pnpm`, with separate packages for questions, results, and scoring logic
 
 ## Key Technical Decisions
 - Use of MongoDB for flexible, scalable storage of NFS Big5 assessment results

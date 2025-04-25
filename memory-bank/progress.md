@@ -14,8 +14,9 @@
 - **English-only refactor and `generateStaticParams` fix committed and pushed.**
 
 ## What's Left to Build
+- **Investigate and resolve persistent conflicting catch-all route error locally.**
 - Monitor Netlify deployment for build success.
-- Implement and test branding changes in the codebase using assets from `images`.
+- Implement branding changes in the codebase using assets from `images`.
 - Update UI, config, and documentation to consistently use "NFS Big5".
 - Expand documentation as new features or requirements emerge.
 - **Complete Netlify Edge Function implementation:**
@@ -34,9 +35,13 @@
 - **`.env.local` has been removed from Git history using `git-filter-repo` to prevent exposure of sensitive information.**
 - **English-only refactor and `generateStaticParams` fix committed and pushed.**
 - **Netlify deployment is configured for static export, and we are monitoring the build result.**
+- **Debugging persistent conflicting catch-all route error locally.**
+- **Installed Babel dependencies (`@babel/core`, `@babel/preset-react`)** to address ESLint parsing error.
 
 ## Known Issues
-- **Netlify build error: Missing generateStaticParams for /[locale]/[...rest] route when using `output: 'export'`.** The fix (English-only refactor and `generateStaticParams` confirmation) has been committed and pushed. Awaiting Netlify build result for confirmation.
+- **Persistent local development error:** "You cannot use both an required and optional catch-all route at the same level ("[...rest]" and "[[...rest]]" )". This error persists despite attempting to remove the `[...rest]` directory and removing `output: 'export'`. Investigation is ongoing.
+- **ESLint Parsing error:** "Cannot find module 'next/babel'". Addressed by installing Babel dependencies.
+- **Netlify build error: Missing generateStaticParams for /[locale]/[...rest] route when using `output: 'export'`.** This error is no longer relevant since `output: 'export'` was removed.
 - No other major issues identified at this stage; documentation will be updated as the project evolves.
 
 ## Evolution of Project Decisions

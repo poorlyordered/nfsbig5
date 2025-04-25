@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
-import { getPageData } from '@/lib/content'; // Assuming you have a function like this
-import MdxContent from '@/components/mdx-content'; // Assuming you have this component
+import { getPostBySlug } from '@/lib/markdown'; // Updated import
+// import MdxContent from '@/components/mdx-content'; // Removed non-existent component import
 // ... other imports ...
 
 // ADD THIS FUNCTION:
@@ -37,8 +37,8 @@ export default async function Page({ params }: { params: { locale: string; rest?
   const slug = params.rest?.join('/') || 'index'; // Adjust 'index' if your root slug is different
 
   try {
-    // Fetch content based on locale ('en') and the determined slug
-    const pageData = await getPageData(params.locale, slug); // Ensure getPageData handles 'index' or equivalent
+    // Fetch content based on the determined slug (locale 'en' is implicit)
+    const pageData = await getPostBySlug(slug); // Use getPostBySlug
 
     if (!pageData) {
       notFound();
@@ -48,7 +48,8 @@ export default async function Page({ params }: { params: { locale: string; rest?
     return (
       <article>
         <h1>{pageData.title}</h1>
-        <MdxContent source={pageData.mdxSource} />
+        {/* Render the pre-processed HTML directly */}
+        <div dangerouslySetInnerHTML={{ __html: pageData.body.html }} />
       </article>
     );
   } catch (error) {

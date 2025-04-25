@@ -15,8 +15,6 @@ const nextConfig = {
   //     },
   //   ],
   // },
-  output: 'export',        // Generate a fully static site
-  trailingSlash: true,     // Ensure all URLs have a trailing slash
 };
 
 // module.exports = withContentlayer(withNextIntl(nextConfig)); // Removed contentlayer wrapper

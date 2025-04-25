@@ -67,8 +67,8 @@ export const SonarPulse: FC<SonarPulseProps> = ({
     }
 
     return circles;
-  }, [rgbaColors, circlesCount]);
-
+  }, [rgbaColors, circlesCount, size]); // Added 'size' to dependency array
+ 
   if (isSSR) {
     return null;
   }

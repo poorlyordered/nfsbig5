@@ -1,7 +1,8 @@
 # Active Context
 
 ## Current Work Focus
-- **Monitoring Netlify deployment after pushing English-only refactor and `generateStaticParams` fix.**
+- **Debugging persistent conflicting catch-all route error locally.**
+- Monitoring Netlify deployment after pushing English-only refactor and `generateStaticParams` fix.
 - Implementing deployment infrastructure with Netlify and MongoDB Atlas.
 - Updating all Memory Bank documentation to reflect the NFS Big5 branding.
 - Integrating new logo assets from the `images` directory into the branding plan and documentation.
@@ -16,28 +17,27 @@
 - **Resolved ESLint parsing error by excluding specific files in `web/.eslintrc.json`.**
 - **Removed `.env.local` from Git history using `git-filter-repo` to prevent exposure of sensitive information.**
 - **Resolved Netlify "page not found" error by configuring build settings (base directory and build command) in `netlify.toml`.**
-- **Configured Next.js for static export (`output: 'export'`) and updated Netlify redirects to address initial deployment issues.**
+- **Removed `output: 'export'` from `web/next.config.js`** to resolve Middleware incompatibility.
 - **Configured i18n for English-only:** Updated `web/src/config/site.ts` and `web/src/middleware.ts`.
 - **Removed non-English message files** from `web/src/messages/`.
 - **Removed locale switcher components** (`locale-switcher.tsx`, `locale-switcher-full.tsx`) and updated `web/src/components/navbar.tsx`.
 - **Committed changes related to English-only refactor and `generateStaticParams` fix.**
 - **Pushed changes to remote repository.**
+- **Installed Babel dependencies (`@babel/core`, `@babel/preset-react`)** to address ESLint parsing error.
  
 ## Next Steps
+- **Investigate and resolve persistent conflicting catch-all route error locally.**
 - Monitor Netlify deployment for build success.
 - Implement branding changes in the codebase using assets from `images`.
-- Update UI, config, and documentation to consistently use "NFS Big5"
-- Continue refining documentation as the project evolves
-- Consider implementing caching for markdown processing to improve performance
+- Update UI, config, and documentation to consistently use "NFS Big5".
+- Continue refining documentation as the project evolves.
+- Consider implementing caching for markdown processing to improve performance.
 - **Complete Netlify Edge Function setup:**
     - Enable MongoDB Data API in Atlas (manual).
     - Add required environment variables to Netlify site settings (manual).
     - Test Edge Function locally using `netlify dev`.
     - Integrate Edge Function calls into Next.js API routes if needed.
     - Deploy and validate Edge Function in production.
-- Update UI, config, and documentation to consistently use "NFS Big5".
-- Continue refining documentation as the project evolves.
-- Consider implementing caching for markdown processing to improve performance.
 
 ## Active Decisions and Considerations
 - Centralizing brand assets in the `images` directory for easier management
@@ -59,4 +59,6 @@
 - Custom solutions for content processing provide more flexibility and fewer dependency conflicts
 
 ## Known Issues
-- **Netlify build error: Missing generateStaticParams for /[locale]/[...rest] route when using `output: 'export'`.** The fix (English-only refactor and `generateStaticParams` confirmation) has been committed and pushed. Awaiting Netlify build result for confirmation.
+- **Persistent local development error:** "You cannot use both an required and optional catch-all route at the same level ("[...rest]" and "[[...rest]]" )". This error persists despite attempting to remove the `[...rest]` directory and removing `output: 'export'`. Investigation is ongoing.
+- **ESLint Parsing error:** "Cannot find module 'next/babel'". Addressed by installing Babel dependencies.
+- **Netlify build error: Missing generateStaticParams for /[locale]/[...rest] route when using `output: 'export'`.** This error is no longer relevant since `output: 'export'` was removed.
