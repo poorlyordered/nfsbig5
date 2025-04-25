@@ -9,8 +9,6 @@ import {
   NavbarItem,
   NavbarMenuItem
 } from '@nextui-org/navbar';
-import LocaleSwitcher from '@/components/locale-switcher';
-import LocaleSwitcherFull from '@/components/locale-switcher-full';
 import { Link } from '@nextui-org/link';
 
 import { link as linkStyles } from '@nextui-org/theme';
@@ -92,15 +90,11 @@ export const Navbar = ({ navItems, navMenuItems }: NavbarProps) => {
           </Link>
           <ThemeSwitch />
         </NavbarItem>
-        <NavbarItem>
-          <LocaleSwitcherFull />
-        </NavbarItem>
+        {/* LocaleSwitcherFull removed */}
       </NavbarContent>
 
       <NavbarContent className='md:hidden basis-1 pl-4' justify='end'>
-        <NavbarItem>
-          <LocaleSwitcher />
-        </NavbarItem>
+        {/* LocaleSwitcher removed */}
         <NavbarItem>
           <Link isExternal href={siteConfig.links.github} aria-label='Github'>
             <GithubIcon className='text-default-500' />

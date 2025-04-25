@@ -20,3 +20,10 @@ old-packages/
 .DS_Store
 # Local Netlify folder
 .netlify
+/.roo/
+/.modes/
+/.docs/
+/.templates/
+/.workflows/
+/.processes/
+/.tasks/
